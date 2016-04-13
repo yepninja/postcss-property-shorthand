@@ -1,6 +1,6 @@
 {
   "name": "postcss-property-shorthand",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "description": "PostCSS plugin for short definition of user default properties using variables",
   "keywords": [
     "postcss",
