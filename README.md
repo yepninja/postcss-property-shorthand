@@ -14,7 +14,7 @@
 
 ```css
 .foo {
-    transition: transition;
+    transition: $transition;
 }
 ```
 
@@ -32,3 +32,64 @@ See [PostCSS] docs for examples for your environment.
 Type: `css`, `scss`, `less`<br>
 Default: ``<br>
 Manage type of variables
+
+### Using `stylus` (default) variable
+```js
+postcss([
+    require('postcss-property-shorthand')
+])
+```
+```css
+/* input */
+.foo {
+    transition: ;
+}
+```
+```css
+/* output */
+.foo {
+    transition: transition;
+}
+```
+
+### Using `scss` variable
+```js
+postcss([
+    require('postcss-property-shorthand')({
+        syntax: 'scss'
+    })
+])
+```
+```css
+/* input */
+.foo {
+    transition: ;
+}
+```
+```css
+/* output */
+.foo {
+    transition: $transition;
+}
+```
+
+### Using `css` custom property
+```js
+postcss([
+    require('postcss-property-shorthand')({
+        syntax: 'css'
+    })
+])
+```
+```css
+/* input */
+.foo {
+    transition: ;
+}
+```
+```css
+/* output */
+.foo {
+    transition: var(--transition);
+}
+```
